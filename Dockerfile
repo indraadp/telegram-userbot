@@ -4,8 +4,8 @@ FROM alfianandaa/alf:groovy
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b master https://github.com/alfianandaa/ProjectAlf /home/projectalf/
-RUN mkdir /home/projectalf/bin/
-WORKDIR /home/projectalf/
+RUN git clone -b master https://github.com/indraadp/telegram-userbot /home/telegram-userbot/
+RUN mkdir /home/telegram-userbot/bin/
+WORKDIR /home/telegram-userbot/
 
 CMD ["python3","-m","userbot"]
