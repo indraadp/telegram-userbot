@@ -94,7 +94,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN") or None
 
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = (os.environ.get("UPSTREAM_REPO_URL")
-                     or "https://github.com/alfianandaa/ProjectAlf")
+                     or "https://github.com/indraadp/telegram-userbot")
 
 # UPSTREAM_REPO_URL branch, the default is master
 UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH") or "master"
@@ -283,10 +283,10 @@ with bot:
         async def handler(event):
             if event.message.from_id != uid:
                 await event.reply(
-                    "I'm [ProjectAlf](https://github.com/alfianandaa/ProjectAlf) modules helper...\nplease make your own bot, don't use mine 😋"
+                    "I'm Userbot Indra DP modules helper...\nplease make your own bot, don't use mine 😋"
                 )
             else:
-                await event.reply(f"`Hey there {ALIVE_NAME}\n\nI work for you :)`")
+                await event.reply(f"`Hey {ALIVE_NAME}\n\nI work for you :)`")
 
         @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
@@ -296,9 +296,9 @@ with bot:
             if event.query.user_id == uid and query.startswith(""):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.article(
-                    "Please Use Only With .help Command",
+                    "Click here to show list inline bot helper",
                     text="{}\nTotal loaded modules: {}".format(
-                        "[ProjectAlf](https://github.com/alfianandaa/ProjectAlf) modules helper.\n",
+                        "[Userbot Indra DP](https://github.com/indraadp/telegram-userbot) modules helper.\n",
                         len(dugmeler),
                     ),
                     buttons=buttons,
@@ -306,24 +306,24 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "ProjectAlf Helper",
+                    "Userbot Indra DP Helper",
                     text="List of Modules",
                     buttons=[],
                     link_preview=True,
                 )
             else:
                 result = builder.article(
-                    "ProjectAlf",
+                    "Userbot Indra DP",
                     text="""You can convert your account to bot and use them. Remember, you can't manage someone else's bot! All installation details are explained from GitHub address below.""",
                     buttons=[
                         [
                             custom.Button.url(
                                 "GitHub Repo",
-                                "https://github.com/alfianandaa/ProjectAlf",
+                                "https://github.com/indraadp/telegram-userbot",
                             ),
                             custom.Button.url(
-                                "Support",
-                                "https://t.me/UserBotIndo"),
+                                "How to Setup",
+                                "https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2"),
                         ],
                     ],
                     link_preview=False,
@@ -362,7 +362,7 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = "Please make for yourself, don't use my bot!"
+                reply_pop_up_alert = "Please make bot for yourself, don't use my bot!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -394,7 +394,7 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = "Please make for yourself, don't use my bot!"
+                reply_pop_up_alert = "Please make bot for yourself, don't use my bot!"
 
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
