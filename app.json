@@ -131,6 +131,10 @@
       "description": "Get your Google Drive client in in https://console.developers.google.com/.",
       "required": false
     },
+    "G_DRIVE_FOLDER_ID": {
+      "description": "Your Folder ID in Google Drive.",
+      "required": false
+    },
     "GENIUS_ACCESS_TOKEN": {
       "description": "Client Access Token from https://genius.com/api-clients.",
       "required": false
