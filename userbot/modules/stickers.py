@@ -23,7 +23,7 @@ from userbot import CMD_HELP, bot
 from userbot.events import register
 
 KANGING_STR = [
-    "Menyimpan stiker ini...",
+    "Menyimpan sticker ini...",
   ]
 
 
@@ -74,7 +74,7 @@ async def kang(args):
     if photo:
         splat = args.text.split()
         if not emojibypass:
-            emoji = "😁"
+            emoji = "🔴"
         pack = 1
         if len(splat) == 3:
             pack = splat[2]  # User sent both
@@ -344,11 +344,11 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update(
     {
-        "stickers": ">`.sst [emoji('s)]?`"
+        "stickers": ">`.sst [emoji]`"
         "\nUsage: Reply .sst to a sticker or an image to save it to your userbot pack "
         "\nor specify the emoji you want to."
-        "\n\n>`.sst (emoji['s]]?` [number]?"
-        "\nUsage: Save the sticker/image to the specified pack but uses 😁 as emoji "
+        "\n\n>`.sst [emoji] [number]"
+        "\nUsage: Save the sticker/image to the specified pack but uses 🔴 as emoji "
         "or choose the emoji you want to."
         "\n\n>`.stkrinfo`"
         "\nUsage: Gets info about the sticker pack."
