@@ -33,7 +33,7 @@ async def get_tz(con):
         return
 
 
-@register(outgoing=True, pattern=r"^\.weather(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.wtr(?: |$)(.*)")
 async def get_weather(weather):
 
     if not OWM_API:
@@ -114,22 +114,22 @@ async def get_weather(weather):
         return datetime.fromtimestamp(unix, tz=ctimezone).strftime("%I:%M %p")
 
     await weather.edit(
-        f"**Temperature:** `{celsius(curtemp)}°C | {fahrenheit(curtemp)}°F`\n"
-        + f"**Min. Temp.:** `{celsius(min_temp)}°C | {fahrenheit(min_temp)}°F`\n"
-        + f"**Max. Temp.:** `{celsius(max_temp)}°C | {fahrenheit(max_temp)}°F`\n"
-        + f"**Humidity:** `{humidity}%`\n"
-        + f"**Wind:** `{kmph[0]} kmh | {mph[0]} mph, {findir}`\n"
-        + f"**Sunrise:** `{sun(sunrise)}`\n"
-        + f"**Sunset:** `{sun(sunset)}`\n\n"
+        f"🌡 **Temperature:** `{celsius(curtemp)}°C | {fahrenheit(curtemp)}°F`\n"
+        + f"🥶 **Min. Temp.:** `{celsius(min_temp)}°C | {fahrenheit(min_temp)}°F`\n"
+        + f"🥵 **Max. Temp.:** `{celsius(max_temp)}°C | {fahrenheit(max_temp)}°F`\n"
+        + f"🌫️ **Humidity:** `{humidity}%`\n"
+        + f"🌬️ **Wind:** `{kmph[0]} kmh | {mph[0]} mph, {findir}`\n"
+        + f"🌄 **Sunrise:** `{sun(sunrise)}`\n"
+        + f"🌅 **Sunset:** `{sun(sunset)}`\n\n"
         + f"**{desc}**\n"
-        + f"`{cityname}, {fullc_n}`\n"
-        + f"`{time}`"
+        + f"🏠 `{cityname}, {fullc_n}`\n"
+        + f"🕒 `{time}`"
     )
 
 
 CMD_HELP.update(
     {
-        "weather": ">`.weather <city> or .weather <city>, <country name/code>`"
+        "weather": ">`.wtr <city> or .wtr <city>, <country name/code>`"
         "\nUsage: Gets the weather of a city."
     }
 )
