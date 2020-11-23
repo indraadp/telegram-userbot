@@ -1,6 +1,6 @@
 {
-  "name": "Telegram ProjectAlf",
-  "description": "[ProjectAlf] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
+  "name": "Telegram Userbot",
+  "description": "A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
   "keywords": [
     "telegram",
     "userbot",
@@ -8,7 +8,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/alfianandaa/ProjectAlf",
+  "repository": "https://github.com/indraadp/telegram-userbot",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
   "success_url": "https://t.me/userbotindo",
   "stack": "container",
@@ -48,7 +48,7 @@
       "required": false
     },
     "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
+      "description": "Get your own APPID (API key)from https://openweathermap.org/api",
       "required": false
     },
     "BOTLOG": {
@@ -123,8 +123,12 @@
       "description": "Name to show in .alive message",
       "required": false
     },
-    "G_DRIVE_DATA": {
-      "description": "Your client_secret.json.",
+    "G_DRIVE_CLIENT_ID": {
+      "description": "Get your Google Drive client ID in https://console.developers.google.com/.",
+      "required": false
+    },
+    "G_DRIVE_CLIENT_SECRET": {
+      "description": "Get your Google Drive client in in https://console.developers.google.com/.",
       "required": false
     },
     "GENIUS_ACCESS_TOKEN": {
@@ -176,7 +180,7 @@
     },
     "ALIVE_LOGO": {
       "description": "Image in .alive message. the value MUST A DIRECT LINK or Will Crash!",
-      "value": "https://telegra.ph/file/09b16d6627c5dfe47342e.jpg",
+      "value": "https://telegra.ph/file/2ca68c64be3894aa5ed91.jpg",
       "required": false
     },
     "USR_TOKEN_UPTOBOX": {
