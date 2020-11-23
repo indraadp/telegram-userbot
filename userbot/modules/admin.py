@@ -228,7 +228,7 @@ async def ban(bon):
         return
 
     # Announce that we're going to whack the pest
-    await bon.edit("`Whacking the pest!`")
+    await bon.edit("`Preparing for Ban!`")
 
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
@@ -248,11 +248,11 @@ async def ban(bon):
     # Shout out the ID, so that fedadmins can fban later
     if reason:
         await bon.edit(
-            f"`USER:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` was banned !!\n`Reason:` {reason}"
+            f"⚠ [{user.first_name}](tg://user?id={user.id}) `has been BANNED!!`\n`Reason:` {reason}"
         )
     else:
         await bon.edit(
-            f"`USER:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` was banned !!"
+            f"⚠ [{user.first_name}](tg://user?id={user.id}) `has been BANNED!!`"
         )
     # Announce to the logging group if we have banned the person
     # successfully!
@@ -330,7 +330,7 @@ async def spider(spdr):
         )
 
     # If everything goes well, do announcing and mute
-    await spdr.edit("`Gets a tape!`")
+    await spdr.edit("`Starting for Muted!!`")
     if mute(spdr.chat_id, user.id) is False:
         return await spdr.edit("`Error! User probably already muted.`")
     else:
@@ -339,9 +339,9 @@ async def spider(spdr):
 
             # Announce that the function is done
             if reason:
-                await spdr.edit(f"`Safely taped !!`\nReason: {reason}")
+                await spdr.edit(f"`This user has been MUTED!!`\n`Reason`: {reason}")
             else:
-                await spdr.edit("`Safely taped !!`")
+                await spdr.edit("`This user has been MUTED!!`")
 
             # Announce to logging group
             if BOTLOG:
@@ -500,9 +500,9 @@ async def gspider(gspdr):
         await gspdr.edit("`Error! User probably already gmuted.\nRe-rolls the tape.`")
     else:
         if reason:
-            await gspdr.edit(f"`Globally taped!`\nReason: {reason}")
+            await gspdr.edit(f"`Globally muted!`\nReason: {reason}")
         else:
-            await gspdr.edit("`Globally taped!`")
+            await gspdr.edit("`Globally muted!`")
 
         if BOTLOG:
             await gspdr.client.send_message(
@@ -513,7 +513,7 @@ async def gspider(gspdr):
             )
 
 
-@register(outgoing=True, pattern=r"^\.zombies(?: |$)(.*)", groups_only=False)
+@register(outgoing=True, pattern=r"^\.delac(?: |$)(.*)", groups_only=False)
 async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
@@ -521,7 +521,7 @@ async def rm_deletedacc(show):
     del_status = "`No deleted accounts found, Group is clean`"
 
     if con != "clean":
-        await show.edit("`Searching for ghost/deleted/zombie accounts...`")
+        await show.edit("`Searching for deleted accounts...`")
         async for user in show.client.iter_participants(show.chat_id):
 
             if user.deleted:
@@ -529,8 +529,8 @@ async def rm_deletedacc(show):
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"`Found` **{del_u}** `ghost/deleted/zombie account(s) in this group,"
-                "\nclean them by using .zombies clean`"
+                f"`Found` **{del_u}** `deleted account(s) in this group,"
+                "\nclean them by using .delac clean`"
             )
         return await show.edit(del_status)
 
@@ -930,9 +930,9 @@ CMD_HELP.update(
         "\nUsage: Mutes the person in all groups you have in common with them."
         "\n\n>`.ungmute <username/reply>`"
         "\nUsage: Reply someone's message with .ungmute to remove them from the gmuted list."
-        "\n\n>`.zombies`"
+        "\n\n>`.delac`"
         "\nUsage: Searches for deleted accounts in a group. "
-        "Use .zombies clean to remove deleted accounts from the group."
+        "Use .delac clean to remove deleted accounts from the group."
         "\n\n>`.all`"
         "\nUsage: Tag all member in group chat."
         "\n\n>`.admins`"
