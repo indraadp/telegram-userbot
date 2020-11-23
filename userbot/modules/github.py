@@ -8,7 +8,7 @@ from github import Github
 from userbot import CMD_HELP, GIT_REPO_NAME, GITHUB_ACCESS_TOKEN, bot
 from userbot.events import register
 
-GIT_TEMP_DIR = "./projectalf/temp/"
+GIT_TEMP_DIR = "./telegram-userbot/temp/"
 
 
 @register(pattern=r"\.git (.*)", outgoing=True)
@@ -106,17 +106,17 @@ async def git_commit(file_name, mone):
             return await mone.edit("`File Already Exists`")
     file_name = "userbot/modules/" + file_name
     if create_file:
-        file_name = file_name.replace("./projectalf/temp/", "")
+        file_name = file_name.replace("./telegram-userbot/temp/", "")
         print(file_name)
         try:
             repo.create_file(
-                file_name, "ProjectAlf: Add new module", commit_data, branch="master"
+                file_name, "Add new module", commit_data, branch="master"
             )
             print("Committed File")
             ccess = GIT_REPO_NAME
             ccess = ccess.strip()
             await mone.edit(
-                f"`Commited On UserBot Repo`\n\n[Your Modules](https://github.com/{ccess}/tree/master/{file_name})"
+                f"`Commited On Userbot Repo`\n\n[Your Modules](https://github.com/{ccess}/tree/master/{file_name})"
             )
         except BaseException:
             print("Cannot Create Module")
