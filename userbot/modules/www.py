@@ -13,7 +13,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.speed$")
+@register(outgoing=True, pattern=r"^\.spt$")
 async def speedtst(spd):
     await spd.edit("`Running speed test . . .`")
     test = Speedtest()
@@ -61,7 +61,7 @@ async def neardc(event):
     )
 
 
-@register(outgoing=True, pattern=r"^\.ping$")
+@register(outgoing=True, pattern=r"^\.p$")
 async def pingme(pong):
     start = datetime.now()
     await pong.edit("`Pong!`")
@@ -72,8 +72,8 @@ async def pingme(pong):
 
 CMD_HELP.update(
     {
-        "speed": ">`.speed`" "\nUsage: Does a speedtest and shows the results.",
+        "speedtest": ">`.spt`" "\nUsage: Does a speedtest and shows the results.",
         "dc": ">`.dc`" "\nUsage: Finds the nearest datacenter from your server.",
-        "ping": ">`.ping`" "\nUsage: Shows how long it takes to ping your bot.",
+        "ping": ">`.p`" "\nUsage: Shows how long it takes to ping your bot.",
     }
 )
