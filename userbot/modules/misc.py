@@ -45,15 +45,15 @@ async def sleepybot(time):
 
 @register(outgoing=True, pattern=r"^\.shutdown$")
 async def killthebot(event):
-    await event.edit("`Goodbye...`")
+    await event.edit("`Shutdown userbot...`")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shut down")
+        await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shutdown")
     await bot.disconnect()
 
 
 @register(outgoing=True, pattern=r"^\.restart$")
 async def killdabot(event):
-    await event.edit("`*i would be back in a moment*`")
+    await event.edit("`Restarting userbot...`")
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Bot Restarted")
     await bot.disconnect()
@@ -67,13 +67,19 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's something for you to read:\n"
-        "\n[ProjectAlf's README.md file](https://github.com/alfianandaa/ProjectAlf/blob/master/README.md)"
-        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
-        "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
-        "\n[Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
-        "\n[Video Tutorial - 576p](https://mega.nz/#!ErwCESbJ!1ZvYAKdTEfb6y1FnqqiLhHH9vZg4UB2QZNYL9fbQ9vs)"
-        "\n[Video Tutorial - 1080p](https://mega.nz/#!x3JVhYwR!u7Uj0nvD8_CyyARrdKrFqlZEBFTnSVEiqts36HBMr-o)"
-        "\n[Special - Note](https://telegra.ph/Special-Note-11-02)"
+        "\nSupport Group:"
+        "\nJoin Userbot Indonesia Group: [Click Here](https://t.me/userbotindo)"
+        "\nJoin RaphielGang Group: [Click Here](https://t.me/tgpaperplane)\n"
+        "\nSome Setup Guides:"
+        "\nSetup Guide - Indonesian: [Click Here](https://telegra.ph/UserIndoBot-05-21-3)"
+        "\nSetup Guide - English: [Click Here](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2)"
+        "\nSetup Guide - From MiHub: [Click Here](https://www.mihub.my.id/2020/05/jadiuserbot.html)"
+        "\nGenerate String Session: [Click Here](https://string.projectalf.repl.run/)"
+        "\nSetup Guide - Google Drive: [Click Here](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
+        "\nSetup Guide - LastFM: [Click Here](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)\n"
+        "\nVideo Tutorial:"
+        "\nVideo Tutorial - [576p](https://mega.nz/#!ErwCESbJ!1ZvYAKdTEfb6y1FnqqiLhHH9vZg4UB2QZNYL9fbQ9vs)"
+        "\nVideo Tutorial - [1080p](https://mega.nz/#!x3JVhYwR!u7Uj0nvD8_CyyARrdKrFqlZEBFTnSVEiqts36HBMr-o)"
     )
 
 
@@ -95,7 +101,7 @@ async def repeat(rep):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        "[Here](https://github.com/alfianandaa/ProjectAlf) is ProjectAlf repo."
+        "Source repo my Userbot: [Click Here](https://github.com/alfianandaa/ProjectAlf)"
     )
 
 
