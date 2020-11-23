@@ -23,20 +23,11 @@ from userbot import CMD_HELP, bot
 from userbot.events import register
 
 KANGING_STR = [
-    "Bentar nyeduh Kopi Dulu...",
-    "Ngeliatin ini sticker...",
-    "Masukin ni Sticker ke pack stickerku...",
-    "Ngekang Ni Sticker...",
-    "Hey Ini Sticker Bagus!\nGimana Jika Aku kang?!..",
-    "Tak kang yo stickermu.",
-    "Ay Coba liat stickermu (☉｡☉)!→\nApa Luu...",
-    "Bapac Toing ke Mekkah, Di mekkah eh masuk angin, Bisa ini gw kangin?!",
-    "Compile This Sticker \nHehe...",
-    "Mr.Cabul Sticker mu bagus ni, minta yakk... ",
-]
+    "Menyimpan stiker ini...",
+  ]
 
 
-@register(outgoing=True, pattern=r"^\.kang")
+@register(outgoing=True, pattern=r"^\.sst")
 async def kang(args):
     user = await bot.get_me()
     if not user.username:
@@ -76,14 +67,14 @@ async def kang(args):
             is_anim = True
             photo = 1
         else:
-            return await args.edit("`Unsupported File!`")
+            return await args.edit("`File tidak didukung!`")
     else:
-        return await args.edit("`I can't kang that...`")
+        return await args.edit("`Tidak dapat menyimpan file itu..`")
 
     if photo:
         splat = args.text.split()
         if not emojibypass:
-            emoji = "🤔"
+            emoji = "😁"
         pack = 1
         if len(splat) == 3:
             pack = splat[2]  # User sent both
@@ -99,7 +90,7 @@ async def kang(args):
                 emoji = splat[1]
 
         packname = f"a{user.id}_by_{user.username}_{pack}"
-        packnick = f"@{user.username}'s kang pack Vol.{pack}"
+        packnick = f"@{user.username}'s sticker pack Vol.{pack}"
         cmd = "/newpack"
         file = io.BytesIO()
 
@@ -177,9 +168,9 @@ async def kang(args):
                         # Ensure user doesn't get spamming notifications
                         await bot.send_read_acknowledge(conv.chat_id)
                         return await args.edit(
-                            "`Sticker ditambahkan ke pack ynag berbeda !"
+                            "`Sticker ditambahkan ke pack yang berbeda !"
                             "\nIni pack yang baru saja kamu buat!"
-                            f"\nKlik [disini](t.me/addstickers/{packname}) untuk liat pack kamj",
+                            f"\nKlik [disini](t.me/addstickers/{packname}) untuk liat pack kamu",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -246,8 +237,8 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(
-            "`Sticker Sukses Tercolong!`"
-            f"\nKlik [disini](t.me/addstickers/{packname}) kalo mau liat stickerku",
+            "`Sticker sukses tersimpan!`"
+            f"\nLihat sticker pack Indra DP [DISINI](t.me/addstickers/{packname})",
             parse_mode="md",
         )
 
@@ -280,7 +271,7 @@ async def resize_photo(photo):
 async def get_pack_info(event):
     if not event.is_reply:
         return await event.edit(
-            "`Aku tidak bisa mengambil info dari apapun, bisakah aku?!`"
+            "`Tidak bisa mengambil info dari apapun!`"
         )
 
     rep_msg = await event.get_reply_message()
@@ -329,7 +320,7 @@ async def sticker_to_png(sticker):
 
     img = await sticker.get_reply_message()
     if not img.document:
-        await sticker.edit("`Reply ke suatu stiker...`")
+        await sticker.edit("`Reply ke suatu sticker...`")
         return False
 
     try:
@@ -345,7 +336,7 @@ async def sticker_to_png(sticker):
         try:
             await img.reply(file=image, force_document=True)
         except Exception:
-            await sticker.edit("`Err, gak bisa ngirim file...`")
+            await sticker.edit("`Uppss, tidak bisa mengirim file...`")
         else:
             await sticker.delete()
     return
@@ -353,11 +344,11 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update(
     {
-        "stickers": ">`.kang [emoji('s)]?`"
-        "\nUsage: Reply .kang to a sticker or an image to kang it to your userbot pack "
+        "stickers": ">`.sst [emoji('s)]?`"
+        "\nUsage: Reply .sst to a sticker or an image to save it to your userbot pack "
         "\nor specify the emoji you want to."
-        "\n\n>`.kang (emoji['s]]?` [number]?"
-        "\nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji "
+        "\n\n>`.sst (emoji['s]]?` [number]?"
+        "\nUsage: Save the sticker/image to the specified pack but uses 😁 as emoji "
         "or choose the emoji you want to."
         "\n\n>`.stkrinfo`"
         "\nUsage: Gets info about the sticker pack."
