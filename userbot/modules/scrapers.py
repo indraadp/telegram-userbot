@@ -51,8 +51,8 @@ from userbot.events import register
 from userbot.utils import chrome, googleimagesdownload, progress
 
 CARBONLANG = "auto"
-TTS_LANG = "en"
-TRT_LANG = "en"
+TTS_LANG = "id"
+TRT_LANG = "id"
 
 
 @register(outgoing=True, pattern=r"^\.crblang (.*)")
@@ -62,7 +62,7 @@ async def setlang(prog):
     await prog.edit(f"Language for carbon.now.sh set to {CARBONLANG}")
 
 
-@register(outgoing=True, pattern=r"^\.carbon")
+@register(outgoing=True, pattern=r"^\.crb")
 async def carbon_api(e):
     await e.edit("`Processing...`")
     CARBON = "https://carbon.now.sh/?l={lang}&code={code}"
@@ -139,7 +139,7 @@ async def img_sampler(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.currency (.*)")
+@register(outgoing=True, pattern=r"^\.cur (.*)")
 async def moni(event):
     input_str = event.pattern_match.group(1)
     input_sgra = input_str.split(" ")
@@ -168,7 +168,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@register(outgoing=True, pattern=r"^\.google (.*)")
+@register(outgoing=True, pattern=r"^\.ggl (.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
@@ -608,7 +608,7 @@ def deEmojify(inputString):
     return get_emoji_regexp().sub("", inputString)
 
 
-@register(outgoing=True, pattern=r"^\.wolfram (.*)")
+@register(outgoing=True, pattern=r"^\.wf (.*)")
 async def wolfram(wvent):
     if WOLFRAM_ID is None:
         await wvent.edit(
@@ -633,26 +633,26 @@ CMD_HELP.update(
     {
         "img": ">`.img <search_query>`"
         "\nUsage: Does an image search on Google and shows 5 images.",
-        "currency": ">`.currency <amount> <from> <to>`"
+        "currency": ">`.cur <amount> <from> <to>`"
         "\nUsage: Converts various currencies for you.",
-        "carbon": ">`.carbon <text> [or reply]`"
+        "carbon": ">`.crb <text> [or reply]`"
         "\nUsage: Beautify your code using carbon.now.sh\n"
         "Use .crblang <text> to set language for your code.",
-        "google": ">`.google <query>`" "\nUsage: Does a search on Google.",
+        "google": ">`.ggl <query>`" "\nUsage: Does a search on Google.",
         "wiki": ">`.wiki <query>`" "\nUsage: Does a search on Wikipedia.",
         "ud": ">`.ud <query>`" "\nUsage: Does a search on Urban Dictionary.",
         "tts": ">`.tts <text> [or reply]`"
         "\nUsage: Translates text to speech for the language which is set."
-        "\nUse >`.lang tts <language code>` to set language for tts. (Default is English.)",
+        "\nUse >`.lang tts <language code>` to set language for tts. (Default is Indonesian.)",
         "trt": ">`.trt <text> [or reply]`"
         "\nUsage: Translates text to the language which is set."
-        "\nUse >`.lang trt <language code>` to set language for trt. (Default is English)",
+        "\nUse >`.lang trt <language code>` to set language for trt. (Default is Indonesian)",
         "yt": ">`.yt <text>`" "\nUsage: Does a YouTube search.",
         "imdb": ">`.imdb <movie-name>`" "\nUsage: Shows movie info and other stuff.",
         "rip": ">`.aud <url> or vid <url>`"
         "\nUsage: Download videos and songs from YouTube "
         "(and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html)).",
-        "wolfram": ".wolfram <query>"
+        "wolfram": ".wf <query>"
         "\nUsage: Get answers to questions using WolframAlpha Spoken Results API.",
     }
 )
