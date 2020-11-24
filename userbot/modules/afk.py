@@ -52,8 +52,7 @@ async def set_afk(afk_e):
     if string:
         AFKREASON = string
         await afk_e.edit(
-            f"`Sedang offline`\
-           \n`karena` `{string}`"
+            f"`Sedang offline karena` `{string}`"
             )
     else:
         await afk_e.edit("`Offline`")
@@ -150,8 +149,7 @@ async def mention_afk(mention):
         if mention.sender_id not in USERS:
             if AFKREASON:
                 await mention.reply(
-                    f"`Indra sedang offline sejak` {afk_since}.\
-                        \n`karena` `{AFKREASON}`"
+                    f"`Indra sedang offline sejak` {afk_since}, `karena` `{AFKREASON}`"
                 )
             else:
                 await mention.reply(str(choice(AFKSTR)))
@@ -160,8 +158,7 @@ async def mention_afk(mention):
             if USERS[mention.sender_id] % randint(2, 4) == 0:
                 if AFKREASON:
                     await mention.reply(
-                        f"`Indra masih offline sejak` {afk_since}.\
-                            \n`karena` `{AFKREASON}`"
+                        f"`Indra masih offline sejak` {afk_since}, `karena` `{AFKREASON}`"
                     )
                 else:
                     await mention.reply(str(choice(AFKSTR)))
@@ -229,8 +226,7 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(
-                        f"`Indra sedang offline sejak` {afk_since}.\
-                        \n`karena` `{AFKREASON}`"
+                        f"`Indra sedang offline sejak` {afk_since}, `karena` `{AFKREASON}`"
                     )
                 else:
                     await sender.reply(str(choice(AFKSTR)))
@@ -240,8 +236,7 @@ async def afk_on_pm(sender):
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await sender.reply(
-                            f"`Indra masih offline sejak` {afk_since}.\
-                            \n`karena` `{AFKREASON}`"
+                            f"`Indra masih offline sejak` {afk_since}, `karena` `{AFKREASON}`"
                         )
                     else:
                         await sender.reply(str(choice(AFKSTR)))
