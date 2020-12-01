@@ -154,14 +154,10 @@ async def dyno_usage(dyno):
             AppMinutes = math.floor(AppQuotaUsed % 60)
 
             await dyno.edit(
-                "**Dyno Usage**:\n\n"
-                f"-> `Dyno usage for`  **{app.name}**:\n"
-                f"     •  **{AppHours} hour(s), "
-                f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
+                "**Dyno Usage for {app.name} this month:**\n\n"
+                f"• **Usage:** {AppHours} hour(s), {AppMinutes} minute(s) - {AppPercentage}%"
                 "\n\n"
-                "-> `Dyno hours quota remaining this month`:\n"
-                f"     •  **{hours} hour(s), {minutes} minute(s)  "
-                f"-  {percentage}%**"
+                f"• **Remaining:** {hours} hour(s), {minutes} minute(s) - {percentage}%"
             )
             return True
 
