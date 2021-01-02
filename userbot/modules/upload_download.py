@@ -340,7 +340,7 @@ async def uploadas(uas_event):
 
 CMD_HELP.update(
     {
-        "download": ">`.dl <link|filename> or reply to media`"
+        "updown": ">`.dl <link|filename> or reply to media`"
         "\nUsage: Downloads file to the server."
         "\n\n>`.upl <path in server>`"
         "\nUsage: Uploads a locally stored file to the chat."
